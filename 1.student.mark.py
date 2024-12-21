@@ -1,29 +1,35 @@
-students = []
-course = []
-marks = {}
+def input_students():
+    students = [];
+    num_students = int(input("How many student in this class ? : "))
 
-def nums_std():
-    num_std = int(input("Number of student: "))
-    for _ in range(num_std):
-        std_name = input("Student name: ")
-        std_id = input("Student id: ")
-        std_DoB = input("Date of Birth: ")
-        std.append((std_name, std_id, std_DoB))
-    print(f"{num_std} students added!")
+    for _ in range(num_students) : 
+        #id, name, dob
+        student_id = input("Student ID : ")
+        student_name = input("Name : ")
+        student_dob = input("Date of birth : ")
+        students.append({"ID" : student_id, "Name" : student_name, "Dob" : student_dob, "Courses":{}})
+    return students
+def input_courses(students): 
+    for student in students: 
+        print(f"\nAdding course for {student['Name']}(ID:{student['ID']})")
+        while True:
+            course_name = input("Course name('end' to finish) :").strip()
+            if course_name.lower() == "end":
+                break
+            mark = float(input(f"Mark for {course_name}: "))
+            #adding course and mark for student
+            student["Courses"][course_name] = mark 
+    return students
 
-def nums_cours():
-    num_cours = int(input("Numbr of courses: "))
-    for _ in range(num_cours):
-        cour_name = input("Course name: ")
-        cour_id = input("Course id: ")
-        cours.append((cour_name, cour_id))
-        marks[cour_id] = {}
-    print(f"{cour_name} cours added!")
+#int main(){}
 
-def marks():
-    cours_id = input("Course id: ")
-    if cours_id not in [course[0] for cour in cours]:
-        print("Course not found!")
-        return
-    for std_name, std_id, _ in students
+students = input_students()
+students = input_courses(students)
 
+print("\nStudent Data:")
+for student in students:
+    print(f"ID: {student['ID']}, Name: {student['Name']}, Course: {student['Courses']}")
+    
+# Student Data:
+# ID: 12, Name: scotus, Course: {'Algebra': 12.4}
+# ID: 14, Name: jasper, Course: {'Algebra': 16.6}
