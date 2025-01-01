@@ -14,6 +14,7 @@ import curses # Menu
 import math
 import numpy as np
 
+#domain/student.py
 ### Student Class
 class Student:
     def __init__(self, name, student_id):
@@ -34,7 +35,7 @@ class Student:
 
     def describe(self):
         return f"{self.name} (ID: {self.student_id}) - GPA: {self.calculate_gpa():.2f}"
-
+#input.py
 ### UI Class
 class UI:
     def __init__(self):
@@ -67,7 +68,7 @@ class UI:
             screen.addstr("Credit: ")
             credit = float(screen.getstr().decode("utf-8"))
             student.add_mark(subject, mark, credit)
-
+#output.py
     def display_students(self, screen):
         screen.clear()
         screen.addstr("---Student List---\n")
@@ -107,7 +108,7 @@ class UI:
             else:
                 screen.addstr("Invalid choice! Press any key to continue...")
                 screen.getch()
-
+#main.py
 ### Main Function
 def main(stdscr):
     ui = UI()
