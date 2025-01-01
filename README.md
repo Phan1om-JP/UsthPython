@@ -9,7 +9,7 @@ Students are expected to:
 Student Info
 =========================
 
-* Student Name: The Khai 
+* Student Name: Nguyen The Khai 
 * Student ID: 23BI14205
 
 
