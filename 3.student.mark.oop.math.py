@@ -78,7 +78,7 @@ class UI:
         screen.getch()
 
     def sort_students_by_gpa(self):
-        self.students.sort(key=lambda student: student.calculate_gpa(), reverse=True)
+        self.students.sort(key=lambda student: student.calculate_gpa(), reverse=True) #lambda takes a single student in students list and reverse to change the default sort(asc) to desc
 
     def curses_menu(self, screen):
         curses.curs_set(1)
