@@ -1,0 +1,4 @@
+Subject: Python, Credit: 3.0
+Subject: Linear, Credit: 4.0
+Subject: Python, Credit: 3.0
+Subject: Linear, Credit: 4.0

@@ -1,6 +1,11 @@
 #input.py
 ### UI Class
-class UI:
+import curses
+import os
+import pickle
+import gzip
+from domains.student import Student
+class InputHandler:
     def __init__(self):
         self.students = []
 
@@ -15,13 +20,12 @@ class UI:
         student = Student(name, student_id)
         self.add_marks(screen, student)
         self.students.append(student)
-        screen.addstr("\nStudent added! Press any key to continue...")
-        screen.getch() #get a single key to do sth
+        
 #Changing student input info to students.txt
         with open("students.txt", "a") as f:
-            f.write(f"Name :{student.name}, ID : {student.id} \n")
+            f.write(f"Name :{student.name}, ID : {student.student_id} \n")
         screen.addstr("\nStudent added! Press any key to continue...")
-        screen.getch()
+        screen.getch() #get a single key to do sth
 
     def add_marks(self, screen, student):
         while True:
@@ -41,4 +45,17 @@ class UI:
                 f.write(f"Subject: {subject}, Credit: {credit}\n")
 #Changing mark input info to marks.txt
             with open("marks.txt", "a") as f:
-                f.write(f"Student ID : {student.id}, Subject: {subject}, Mark : {mark}\n")
+                f.write(f"Student ID : {student.student_id}, Subject: {subject}, Mark : {mark}\n")
+        screen.addstr("\nMarks added to the courses! Press any key to countinue ...")
+        screen.getch()
+        
+    def save_to_dat(self):
+        """Compress and save all student data into students.dat."""
+        with gzip.open("students.dat", "wb") as f:
+            pickle.dump(self.students, f)
+
+    def load_from_dat(self):
+        """Decompress and load all student data from students.dat."""
+        if os.path.exists("students.dat"):
+            with gzip.open("students.dat", "rb") as f:
+                self.students = pickle.load(f)

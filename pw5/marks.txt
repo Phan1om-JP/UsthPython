@@ -1,0 +1,4 @@
+Student ID : 23, Subject: Python, Mark : 11.0
+Student ID : 23, Subject: Linear, Mark : 15.0
+Student ID : 45, Subject: Python, Mark : 14.0
+Student ID : 45, Subject: Linear, Mark : 12.0
